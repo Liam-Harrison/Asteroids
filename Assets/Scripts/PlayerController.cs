@@ -10,10 +10,18 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private float change;
 
+	[SerializeField]
+	private Transform child;
+
 	private new Camera camera;
 
-	private float x, y, velx, vely;
 	private Vector3 pos;
+
+	private float angle, velangle;
+
+	private Quaternion orbit = Quaternion.identity;
+
+	private float x, y, velx, vely;
 
 	private void Awake()
     {
@@ -22,20 +30,21 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		pos = camera.ScreenToWorldPoint(Input.mousePosition);
+		var ray = camera.ScreenPointToRay(Input.mousePosition);
+		var plane = new Plane(-transform.forward, transform.position);
+		if (plane.Raycast(ray, out float dist))
+		{
+			pos = ray.GetPoint(dist);
+		}
 
-		var input = new Vector2(-Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * speed * Time.smoothDeltaTime;
+		var input = new Vector2(-Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * speed;
 
-		x = Mathf.SmoothDamp(x, x + input.y, ref velx, change);
-		y = Mathf.SmoothDamp(y, y + input.x, ref vely, change);
+		x = Mathf.SmoothDamp(x, input.x, ref velx, change);
+		y = Mathf.SmoothDamp(y, input.y, ref vely, change);
 
-        transform.RotateAround(Vector3.zero, transform.up, input.x);
-        transform.RotateAround(Vector3.zero, transform.right, input.y);
-    }
+		transform.RotateAround(Vector3.zero, transform.up, x * Time.smoothDeltaTime);
+		transform.RotateAround(Vector3.zero, transform.right, y * Time.smoothDeltaTime);
 
-	private void OnDrawGizmos()
-    {
-		Gizmos.color = Color.green;
-		Gizmos.DrawLine(transform.position, pos);
+		child.rotation = Quaternion.LookRotation(-transform.position.normalized, (pos - transform.position).normalized);
     }
 }
