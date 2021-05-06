@@ -17,10 +17,6 @@ public class PlayerController : MonoBehaviour
 
 	private Vector3 pos;
 
-	private float angle, velangle;
-
-	private Quaternion orbit = Quaternion.identity;
-
 	private float x, y, velx, vely;
 
 	private void Awake()

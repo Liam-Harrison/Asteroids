@@ -15,21 +15,24 @@ public class Follow : MonoBehaviour
 
 	private Vector3 vel;
 
-	Vector3 offset;
-	Quaternion rotation;
+	[SerializeField]
+	Vector3 rotationEuler;
 
-	private void Awake()
-	{
-		offset = target.position - transform.position;
-		rotation = transform.rotation;
-	}
+	[SerializeField]
+	Vector3 lookEuler;
+
+	[SerializeField]
+	float rot;
 
 	private void Update()
 	{
-		var pos = target.position.normalized * -distance;
+		var pos = target.position;
+
+		var dif = Quaternion.AngleAxis(rot, target.right) * new Vector3(0, 0, -distance);
+		pos += dif;
 
 		transform.position = Vector3.SmoothDamp(transform.position, pos, ref vel, time);
 
-		transform.rotation = Quaternion.LookRotation((target.position - transform.position).normalized, rotation * target.transform.up);
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation((target.position - transform.position).normalized, target.transform.up), 90 * Time.smoothDeltaTime);
 	}
 }
