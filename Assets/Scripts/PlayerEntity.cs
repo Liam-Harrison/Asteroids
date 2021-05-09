@@ -1,46 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerEntity : Entity
 {
-	[SerializeField]
-	private float speed;
-
 	[SerializeField]
 	private float change;
 
 	[SerializeField]
-	private Transform child;
+	private float speed;
 
 	private new Camera camera;
 
-	private Vector3 pos;
-
 	private float x, y, velx, vely;
+
+	private Vector3 target;
+
+	public static PlayerEntity Instance;
 
 	private void Awake()
     {
+		Instance = this;
 		camera = Camera.main;
     }
 
-	private void Update()
+	protected override void Update()
 	{
 		var ray = camera.ScreenPointToRay(Input.mousePosition);
 		var plane = new Plane(-transform.forward, transform.position);
+
 		if (plane.Raycast(ray, out float dist))
-		{
-			pos = ray.GetPoint(dist);
-		}
+			target = ray.GetPoint(dist);
+		else
+			target = Vector3.zero;
 
 		var input = new Vector2(-Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * speed;
 
 		x = Mathf.SmoothDamp(x, input.x, ref velx, change);
 		y = Mathf.SmoothDamp(y, input.y, ref vely, change);
 
-		transform.RotateAround(Vector3.zero, transform.up, x * Time.smoothDeltaTime);
-		transform.RotateAround(Vector3.zero, transform.right, y * Time.smoothDeltaTime);
+		Velocity = new Vector2(x, y);
 
-		child.rotation = Quaternion.LookRotation(-transform.position.normalized, (pos - transform.position).normalized);
+		if (child != null)
+			child.rotation = Quaternion.RotateTowards(child.rotation, Quaternion.LookRotation((target - transform.position).normalized, transform.position.normalized), 720 * Time.smoothDeltaTime);
+
+		base.Update();
     }
 }

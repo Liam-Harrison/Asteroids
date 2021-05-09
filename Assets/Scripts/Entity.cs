@@ -1,7 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+	[SerializeField]
+	protected Transform child;
+	
+	public Vector2 Velocity { get; protected set; }
+
+	protected virtual void Update()
+	{
+		transform.RotateAround(Vector3.zero, transform.up, Velocity.x * Time.smoothDeltaTime);
+		transform.RotateAround(Vector3.zero, transform.right, Velocity.y * Time.smoothDeltaTime);
+	}
 }

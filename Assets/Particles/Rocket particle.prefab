@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6649177365072652835}
   - component: {fileID: 781823768932896363}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Rocket particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5722595766359998606}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -10.53, y: 0.36187124, z: -244.00862}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
