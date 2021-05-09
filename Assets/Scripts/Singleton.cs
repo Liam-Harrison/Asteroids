@@ -18,4 +18,9 @@ public abstract class Singleton<T> : MonoBehaviour where T: Singleton<T>
 
 		set => instance = value;
 	}
+
+	protected virtual void Awake()
+	{
+		instance = this as T;
+	}
 }

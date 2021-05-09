@@ -20,6 +20,7 @@ public class PlayerEntity : Entity
     {
 		Instance = this;
 		camera = Camera.main;
+		gameObject.SetActive(false);
     }
 
 	protected override void Update()

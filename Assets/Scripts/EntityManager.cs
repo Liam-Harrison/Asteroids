@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EntityManager : Singleton<EntityManager>
 {
+	private const float DEBRIS_SCATTER_ANGLE = 60;
+
 	[SerializeField]
 	private GameObject[] debris;
 
@@ -10,17 +12,23 @@ public class EntityManager : Singleton<EntityManager>
 
 	private int index;
 
-	private void Start()
+	public void DestroyAllDebris()
 	{
-		SpawnDebris();
+		foreach (var entity in Entities.ToArray())
+		{
+			Destroy(entity);
+			Entities.Remove(entity);
+		}
 	}
 
-	private void SpawnDebris()
+	public void SpawnDebris()
 	{
-		var go = Instantiate(debris[index], transform);
-		index = (int)Mathf.Repeat(++index, debris.Length - 1);
+		var go = Instantiate(debris[index++], transform);
 
-		go.transform.position = -PlayerEntity.Instance.transform.position.normalized * 250f;
+		if (index == debris.Length)
+			index = 0;
+
+		go.transform.position = (Quaternion.AngleAxis(Random.value * DEBRIS_SCATTER_ANGLE, Random.onUnitSphere) * -PlayerEntity.Instance.transform.position).normalized * 250f;
 
 		var up = Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector3.forward;
 		var fwd = -go.transform.position.normalized;
