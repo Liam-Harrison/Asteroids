@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayState : GameState
@@ -19,6 +17,9 @@ public class PlayState : GameState
 
 	public override void OnStateUpdate()
 	{
-
+		if (GameStateManager.Instance.Lives == 0)
+		{
+			GameStateManager.Instance.SetState(State.Gameover);
+		}
 	}
 }

@@ -993,66 +993,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 432056272, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653532, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_fontColorGradient.bottomLeft.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653532, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_fontColorGradient.bottomLeft.g
-      value: 0.93333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653532, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_fontColorGradient.bottomLeft.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653532, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_fontColorGradient.bottomRight.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653532, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_fontColorGradient.bottomRight.g
-      value: 0.93333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653532, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_fontColorGradient.bottomRight.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653533, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: a.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653533, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: a.g
-      value: 0.93333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653533, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: a.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653533, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: b.b
-      value: 0.84705883
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653533, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: b.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653533, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: b.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 464653533, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: time
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1117421729, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_text
-      value: Press Space to begin
-      objectReference: {fileID: 0}
     - target: {fileID: 463125169337896297, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
       propertyPath: m_Name
       value: Game UI
@@ -1196,10 +1136,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 732771038593569373, guid: d6e34af17095c724393b97ac3a1d2dc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 732771039287418581, guid: d6e34af17095c724393b97ac3a1d2dc5, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

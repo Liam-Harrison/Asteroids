@@ -4,6 +4,8 @@ public class PlayerEntity : Entity
 {
 	private const float FIRE_RATE = 1f / 3f;
 
+	private const float INVUNERABLE_TIME = 5;
+
 	[SerializeField]
 	private float change;
 
@@ -21,6 +23,8 @@ public class PlayerEntity : Entity
 	private Vector3 target;
 
 	private float lastFired = 0;
+
+	private float lastHit = 0;
 
 	public static PlayerEntity Instance;
 
@@ -47,6 +51,13 @@ public class PlayerEntity : Entity
 		child.rotation = Quaternion.LookRotation(transform.up, transform.position.normalized);
 		child.gameObject.SetActive(true);
 		Locked = false;
+		lastHit = Time.time;
+	}
+
+	public void HidePlayer()
+	{
+		Locked = true;
+		child.gameObject.SetActive(false);
 	}
 
 	private void HandlePlayerLocomotion()
@@ -76,6 +87,15 @@ public class PlayerEntity : Entity
 		{
 			lastFired = Time.time;
 			EntityManager.Instance.SpawnBullet(child.position + child.forward, child.right);
+		}
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "Debris" && Time.time >= lastHit + INVUNERABLE_TIME)
+		{
+			lastHit = Time.time;
+			GameStateManager.Instance.Lives = Mathf.Max(GameStateManager.Instance.Lives - 1, 0);
 		}
 	}
 }

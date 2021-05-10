@@ -17,12 +17,27 @@ public class EntityManager : Singleton<EntityManager>
 
 	private int index;
 
+	public void DestroyAllEntities()
+	{
+		DestroyAllDebris();
+		DestroyAllBullets();
+	}
+
 	public void DestroyAllDebris()
 	{
 		foreach (var entity in Entities.ToArray())
 		{
 			Destroy(entity);
 			Entities.Remove(entity);
+		}
+	}
+
+	public void DestroyAllBullets()
+	{
+		foreach (var bullet in Bullets.ToArray())
+		{
+			Destroy(bullet);
+			Bullets.Remove(bullet);
 		}
 	}
 
