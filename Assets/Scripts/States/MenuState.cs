@@ -19,6 +19,9 @@ public class MenuState : GameState
 
 	public override void OnStateUpdate()
 	{
-
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			GameStateManager.Instance.SetState(State.Playing);
+		}
 	}
 }

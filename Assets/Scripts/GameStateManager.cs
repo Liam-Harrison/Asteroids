@@ -16,6 +16,10 @@ public class GameStateManager : Singleton<GameStateManager>
 
 	public static event Action<State> OnStateChanged = null;
 
+	public int Points { get; set; }
+
+	public int Lives { get; set; }
+
 	private GameState gameState = null;
 
 	private void Start()

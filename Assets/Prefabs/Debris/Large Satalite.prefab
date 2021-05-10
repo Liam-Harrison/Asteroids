@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4380960990315842213}
   - component: {fileID: 7054034106419641181}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Large Satalite
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 7024506472659736219}
-  size: 1
+  deathParticle: {fileID: 0}
+  size: 2
   smallerDebris: {fileID: 9095363231728950606, guid: aef18a9dce8303a4ca9afca8f23fdeba, type: 3}
   speedRange: {x: 10, y: 30}
   rotateRange: {x: 100, y: 180}
@@ -61,9 +62,9 @@ GameObject:
   - component: {fileID: 1367213513129705995}
   - component: {fileID: 6829430255420384686}
   - component: {fileID: 4073186624762792072}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: pasted__group6_group4_pCylinder2
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

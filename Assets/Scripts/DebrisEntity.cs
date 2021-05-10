@@ -3,6 +3,7 @@ using UnityEngine;
 public enum Size
 {
 	Small,
+	Medium,
 	Large
 }
 
@@ -20,6 +21,10 @@ public class DebrisEntity : Entity
 	[SerializeField]
 	private Vector2 rotateRange = new Vector2(20, 30);
 
+	public Size Size { get => size; }
+
+	public GameObject SmallerDebris { get => smallerDebris; }
+
 	private Quaternion rotation;
 	private float speed;
 
@@ -36,5 +41,11 @@ public class DebrisEntity : Entity
 			child.transform.rotation = Quaternion.RotateTowards(child.transform.rotation, child.transform.rotation * rotation, speed * Time.smoothDeltaTime);
 
 		base.Update();
+	}
+
+	private void OnDestroy()
+	{
+		if (EntityManager.Instance.Entities.Contains(this))
+			EntityManager.Instance.Entities.Remove(this);
 	}
 }
