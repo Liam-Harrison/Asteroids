@@ -21,6 +21,9 @@ public class Bullet : Entity
 		{
 			var debris = collision.gameObject.GetComponentInParent<DebrisEntity>();
 
+			if (debris == null)
+				return;
+
 			if (debris.Size == Size.Large)
 				GameStateManager.Instance.Points += 20;
 
@@ -36,7 +39,7 @@ public class Bullet : Entity
 				EntityManager.Instance.SpawnDebris(debris.SmallerDebris, debris.transform.position.normalized * 250f);
 			}
 
-			Destroy(collision.gameObject);
+			Destroy(debris.gameObject);
 		}
 	}
 
