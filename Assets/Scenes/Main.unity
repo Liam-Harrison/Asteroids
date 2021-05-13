@@ -885,8 +885,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debris:
   - {fileID: 4001338745779310623, guid: c4fb4d4d38e23f5439313525d2201f14, type: 3}
-  - {fileID: 4001338745779310623, guid: a74e0dcc62944284489813ace1b88fa3, type: 3}
+  - {fileID: 2938551719589435283, guid: a74e0dcc62944284489813ace1b88fa3, type: 3}
   - {fileID: 9095363231728950606, guid: aef18a9dce8303a4ca9afca8f23fdeba, type: 3}
+  - {fileID: 1309767653576914598, guid: 5f8c879987e5e334eb38af86b3f46f6d, type: 3}
+  - {fileID: 4389376042063158664, guid: 5eca3030eab269f408e8effe6d719f87, type: 3}
+  - {fileID: 7901542648479667639, guid: d302f8e5caf8d2344bede78b8a436eb7, type: 3}
+  - {fileID: 4700188073584703678, guid: 6e160db919c692341a9d3500001ae05d, type: 3}
   bullet: {fileID: 5283910743759061540, guid: 4f289e6295176eb4e903a54706a1c400, type: 3}
 --- !u!1 &1845893605
 GameObject:
