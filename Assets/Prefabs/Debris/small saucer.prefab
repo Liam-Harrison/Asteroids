@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4389376042063158664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3398247, y: 3.452994, z: 0.5062748}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4896251301252456780}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 4896251301252456780}
-  deathParticle: {fileID: 0}
+  deathParticle: {fileID: 2018453796628342773, guid: e6e4977778e7a37418d34c1088fc81cc, type: 3}
   size: 0
   smallerDebris: {fileID: 0}
   speedRange: {x: 20, y: 30}

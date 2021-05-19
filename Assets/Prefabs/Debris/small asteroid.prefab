@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 5979840196059976576}
-  deathParticle: {fileID: 0}
+  deathParticle: {fileID: 3488036031386489513, guid: 0be51b8e09dd2c14fb7ca0f1c2dadf89, type: 3}
   size: 0
   smallerDebris: {fileID: 0}
   speedRange: {x: 20, y: 30}
