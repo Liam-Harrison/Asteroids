@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2937098624827677642}
   - component: {fileID: 6577495961826840410}
   - component: {fileID: 1691566109298764031}
-  - component: {fileID: 5699864044974403458}
+  - component: {fileID: 1127909353709535039}
   m_Layer: 0
   m_Name: pasted__group6_group4_pCylinder2
   m_TagString: Debris
@@ -86,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5699864044974403458
-MeshCollider:
+--- !u!65 &1127909353709535039
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,10 +96,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7330029189004968261, guid: 1db85b73dc162cc4bbcc31862b615c8a, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.022911275, y: 0.026905896, z: 0.022365425}
+  m_Center: {x: 0.0001713694, y: 0.00030030494, z: 0.0000000023283064}
 --- !u!1 &9095363231728950606
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child: {fileID: 2937098624827677642}
   deathParticle: {fileID: 1184997782050513564, guid: 664bc3add9a1894419dbf9f06c139566, type: 3}
+  hitNoise: {fileID: 0}
+  deathNoise: {fileID: 0}
   size: 0
   smallerDebris: {fileID: 0}
   speedRange: {x: 20, y: 30}

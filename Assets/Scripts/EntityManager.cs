@@ -5,6 +5,12 @@ public class EntityManager : Singleton<EntityManager>
 {
 	private const float DEBRIS_SCATTER_ANGLE = 60;
 
+	private const float MIN_ENTITIES = 5;
+
+	private const float MAX_ENTITIES = 20;
+
+	private const float ENTITY_RESPAWN_TIME = 2;
+
 	[SerializeField]
 	private GameObject[] debris;
 
@@ -23,11 +29,29 @@ public class EntityManager : Singleton<EntityManager>
 		DestroyAllBullets();
 	}
 
+	private float lastSpawnTime;
+
+	private void Update()
+	{
+		if (Entities.Count < MIN_ENTITIES)
+		{
+			for (int i = Entities.Count; i < MIN_ENTITIES; i++)
+			{
+				SpawnDebris();
+			}
+		}
+		else if (Time.time - lastSpawnTime > ENTITY_RESPAWN_TIME && Entities.Count < MAX_ENTITIES)
+		{
+			lastSpawnTime = Time.time;
+			SpawnDebris();
+		}
+	}
+
 	public void DestroyAllDebris()
 	{
 		foreach (var entity in Entities.ToArray())
 		{
-			Destroy(entity);
+			Destroy(entity.gameObject);
 			Entities.Remove(entity);
 		}
 	}
@@ -36,7 +60,7 @@ public class EntityManager : Singleton<EntityManager>
 	{
 		foreach (var bullet in Bullets.ToArray())
 		{
-			Destroy(bullet);
+			Destroy(bullet.gameObject);
 			Bullets.Remove(bullet);
 		}
 	}

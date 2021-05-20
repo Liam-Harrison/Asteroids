@@ -1,7 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &302479999786477180
-MeshCollider:
+--- !u!135 &1864354100771579390
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10,10 +10,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5523277661179574252, guid: 895738e0b4d41bc4f90e28cad5602888, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.0060700667
+  m_Center: {x: 4.6566134e-10, y: -0.0000000011641533, z: 0}
 --- !u!1 &7901542648479667639
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,6 +59,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child: {fileID: 1331901911742637699}
   deathParticle: {fileID: 3488036031386489513, guid: 0be51b8e09dd2c14fb7ca0f1c2dadf89, type: 3}
+  hitNoise: {fileID: 0}
+  deathNoise: {fileID: 0}
   size: 1
   smallerDebris: {fileID: 4700188073584703678, guid: 6e160db919c692341a9d3500001ae05d, type: 3}
   speedRange: {x: 20, y: 30}
