@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child: {fileID: 1990735085363900212}
   deathParticle: {fileID: 0}
+  hitNoise: {fileID: 0}
+  deathNoise: {fileID: 0}
   speed: 100
   despawn: 150
   start: {x: 0, y: 0, z: 0, w: 0}
@@ -138,7 +140,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -185,8 +187,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 53199
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -194,7 +196,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
