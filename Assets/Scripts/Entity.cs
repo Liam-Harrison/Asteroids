@@ -7,7 +7,13 @@ public class Entity : MonoBehaviour
 
 	[SerializeField]
 	protected GameObject deathParticle;
-	
+
+	[SerializeField]
+	protected AudioClip hitNoise;
+
+	[SerializeField]
+	protected AudioClip deathNoise;
+
 	public Vector2 Velocity { get; protected set; }
 
 	protected virtual void Update()
@@ -18,6 +24,11 @@ public class Entity : MonoBehaviour
 
 	private void OnDestroy()
 	{
+		if (deathNoise != null)
+		{
+
+		}
+
 		if (deathParticle != null)
 		{
 			var go = Instantiate(deathParticle);

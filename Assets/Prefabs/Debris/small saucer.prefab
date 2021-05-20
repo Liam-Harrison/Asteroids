@@ -46,12 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child: {fileID: 4896251301252456780}
   deathParticle: {fileID: 2018453796628342773, guid: e6e4977778e7a37418d34c1088fc81cc, type: 3}
+  hitNoise: {fileID: 0}
+  deathNoise: {fileID: 0}
   size: 0
   smallerDebris: {fileID: 0}
   speedRange: {x: 20, y: 30}
   rotateRange: {x: 0, y: 0}
---- !u!64 &5030084187794789914
-MeshCollider:
+--- !u!135 &4992386692620495243
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -60,10 +62,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4864056309639282896, guid: d27e61f8e5d0aa6419086668ddecbf35, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.020416414
+  m_Center: {x: 0.0000000046566133, y: 0.0017193248, z: 0}
 --- !u!1001 &4933768023427188391
 PrefabInstance:
   m_ObjectHideFlags: 0

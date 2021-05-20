@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6641237432271060077}
   - component: {fileID: 4087255413805484969}
   - component: {fileID: 5322147912454382678}
-  - component: {fileID: 7881773196398659248}
+  - component: {fileID: 5203136593143702281}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Debris
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7881773196398659248
-MeshCollider:
+--- !u!135 &5203136593143702281
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,10 +92,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1367693174968499173, guid: 3ae916c647714354db75ae6fdddcd617, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.007940226
+  m_Center: {x: -0.00041802536, y: -0.00046045013, z: -0.00043294515}
 --- !u!1 &2938551719589435283
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2938551719589435283}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.67, y: 0.65819, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 6641237432271060077}
@@ -142,6 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child: {fileID: 6641237432271060077}
   deathParticle: {fileID: 3488036031386489513, guid: 0be51b8e09dd2c14fb7ca0f1c2dadf89, type: 3}
+  hitNoise: {fileID: 0}
+  deathNoise: {fileID: 0}
   size: 2
   smallerDebris: {fileID: 7901542648479667639, guid: d302f8e5caf8d2344bede78b8a436eb7, type: 3}
   speedRange: {x: 10, y: 30}
