@@ -5,7 +5,7 @@ public class Bullet : Entity
 	[SerializeField]
 	private float speed = 20;
 
-	[SerializeField, Range(0, 150)]
+	[SerializeField, Range(0, 180)]
 	private float despawn = 180f;
 
 	public Quaternion start;
@@ -39,13 +39,14 @@ public class Bullet : Entity
 				EntityManager.Instance.SpawnDebris(debris.SmallerDebris, debris.transform.position.normalized * 250f);
 			}
 
+			debris.OnEntityDestroyed();
 			Destroy(debris.gameObject);
 		}
 	}
 
 	protected override void Update()
 	{
-		if (this != null && Quaternion.Angle(start, transform.rotation) >= despawn)
+		if (this != null && Quaternion.Angle(PlayerEntity.Instance.transform.rotation, transform.rotation) >= despawn)
 		{
 			Destroy(gameObject);
 		}

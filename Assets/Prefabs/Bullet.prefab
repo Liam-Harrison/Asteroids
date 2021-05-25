@@ -50,7 +50,7 @@ MonoBehaviour:
   hitNoise: {fileID: 0}
   deathNoise: {fileID: 0}
   speed: 100
-  despawn: 150
+  despawn: 160
   start: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &9078292974435623942
 Rigidbody:

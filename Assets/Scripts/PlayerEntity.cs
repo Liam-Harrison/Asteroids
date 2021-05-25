@@ -98,4 +98,9 @@ public class PlayerEntity : Entity
 			GameStateManager.Instance.Lives = Mathf.Max(GameStateManager.Instance.Lives - 1, 0);
 		}
 	}
+
+	private void OnDestroy()
+	{
+		Velocity = Velocity / 2;
+	}
 }

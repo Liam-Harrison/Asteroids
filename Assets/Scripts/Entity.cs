@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour
 		transform.RotateAround(Vector3.zero, transform.right, Velocity.y * Time.smoothDeltaTime);
 	}
 
-	private void OnDestroy()
+	public virtual void OnEntityDestroyed()
 	{
 		if (deathNoise != null)
 		{
@@ -34,6 +34,7 @@ public class Entity : MonoBehaviour
 			var go = Instantiate(deathParticle);
 			go.transform.position = transform.position;
 			go.transform.rotation = transform.rotation;
+			Destroy(go, 1f);
 		}
 	}
 }

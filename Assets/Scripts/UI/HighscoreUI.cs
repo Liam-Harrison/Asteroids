@@ -11,6 +11,8 @@ public class HighscoreUI : MonoBehaviour
 
 	private List<HighscoreRow> rows = new List<HighscoreRow>();
 
+	public static bool UserInputting { get; private set; } = false;
+
 	private void OnEnable()
 	{
 		ParseScores();
@@ -36,17 +38,33 @@ public class HighscoreUI : MonoBehaviour
 
 				user.transform.SetSiblingIndex(row.transform.GetSiblingIndex());
 				user.ReadUserHighscore();
+				user.OnUserInputted += WriteHighscores;
+				UserInputting = true;
 
 				break;
 			}
 		}
 	}
 
+	private void WriteHighscores()
+	{
+		var path = Path.Combine(Application.persistentDataPath, "highscores.txt");
+
+		var highscores = new List<string>();
+		for (int i = 0; i < rows.Count && i < MAX_ROWS; i++)
+		{
+			var row = rows[i];
+			highscores.Add($"{row.Username.text},{row.Score.text}");
+		}
+
+		File.WriteAllLines(path, highscores);
+		UserInputting = false;
+	}
+
 	private void ParseScores()
 	{
 		ClearRows();
 		var path = Path.Combine(Application.persistentDataPath, "highscores.txt");
-		Debug.Log(path);
 
 		if (!File.Exists(path))
 		{

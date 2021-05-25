@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,6 +22,8 @@ public class HighscoreRow : MonoBehaviour
 
 	public bool UserInputting { get; private set; } = false;
 
+	public event Action OnUserInputted;
+
 	public void ReadUserHighscore()
 	{
 		Username.interactable = true;
@@ -40,6 +43,10 @@ public class HighscoreRow : MonoBehaviour
 
 	private void Update()
 	{
-
+		if (Input.GetKeyDown(KeyCode.Return) && Username.text != "")
+		{
+			StopUserInput();
+			OnUserInputted?.Invoke();
+		}
 	}
 }

@@ -15,7 +15,7 @@ public class GameoverState : GameState
 
 	public override void OnStateUpdate()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && !HighscoreUI.UserInputting)
 		{
 			GameStateManager.Instance.SetState(State.Menu);
 		}
