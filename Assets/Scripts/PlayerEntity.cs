@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerEntity : Entity
 {
 	private const float FIRE_RATE = 1f / 3f;
 
-	private const float INVUNERABLE_TIME = 5;
+	private const float INVUNERABLE_TIME = 3;
+
+	[SerializeField]
+	private AudioClip[] fireClips;
 
 	[SerializeField]
 	private float change;
@@ -12,28 +16,33 @@ public class PlayerEntity : Entity
 	[SerializeField]
 	private float speed;
 
+	[SerializeField]
+	private GameObject invincibleEffect;
+
+	[SerializeField]
+	private GameObject invincibleText;
+
 	public bool Locked { get; private set; } = true;
 
 	public bool IsAlive { get => child.gameObject.activeSelf; }
 
+	public static PlayerEntity Instance;
+
+	private Vector3 target;
 	private new Camera camera;
 
 	private float x, y, velx, vely;
-
-	private Vector3 target;
-
 	private float lastFired = 0;
-
 	private float lastHit = 0;
 
-	public static PlayerEntity Instance;
-
-	private void Awake()
-    {
+	protected override void Awake()
+	{
 		Instance = this;
 		camera = Camera.main;
 		child.gameObject.SetActive(false);
-    }
+
+		base.Awake();
+	}
 
 	protected override void Update()
 	{
@@ -44,7 +53,7 @@ public class PlayerEntity : Entity
 		}
 
 		base.Update();
-    }
+	}
 
 	public void SpawnPlayer()
 	{
@@ -81,12 +90,19 @@ public class PlayerEntity : Entity
 			child.rotation = Quaternion.RotateTowards(child.rotation, Quaternion.LookRotation((target - transform.position).normalized, transform.position.normalized), 720 * Time.smoothDeltaTime);
 	}
 
+	private int nextClip = 0;
+
 	private void HandlePlayerFiring()
 	{
 		if (Input.GetMouseButton(0) && Time.time >= lastFired + FIRE_RATE)
 		{
 			lastFired = Time.time;
 			EntityManager.Instance.SpawnBullet(child.position + child.forward, child.right);
+
+			if (nextClip >= fireClips.Length)
+				nextClip = 0;
+
+			source.PlayOneShot(fireClips[nextClip++]);
 		}
 	}
 
@@ -96,11 +112,26 @@ public class PlayerEntity : Entity
 		{
 			lastHit = Time.time;
 			GameStateManager.Instance.Lives = Mathf.Max(GameStateManager.Instance.Lives - 1, 0);
+			if (GameStateManager.Instance.Lives > 0)
+				StartCoroutine(PlayInvincibleEffect());
+
+			if (hitNoise != null)
+				source.PlayOneShot(hitNoise);
 		}
 	}
 
-	private void OnDestroy()
+	private IEnumerator PlayInvincibleEffect()
 	{
-		Velocity = Velocity / 2;
+		invincibleEffect.SetActive(true);
+		invincibleText.SetActive(true);
+
+		float started = Time.time;
+
+		while (Time.time <= started + INVUNERABLE_TIME)
+			yield return null;
+
+		invincibleEffect.SetActive(false);
+		invincibleText.SetActive(false);
+		yield break;
 	}
 }

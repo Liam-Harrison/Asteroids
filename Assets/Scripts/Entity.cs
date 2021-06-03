@@ -14,7 +14,19 @@ public class Entity : MonoBehaviour
 	[SerializeField]
 	protected AudioClip deathNoise;
 
-	public Vector2 Velocity { get; protected set; }
+	public Vector2 Velocity { get; set; }
+
+	public float Spawned { get; private set; }
+
+	protected AudioSource source;
+
+	protected virtual void Awake()
+	{
+		Spawned = Time.time;
+
+		source = GetComponent<AudioSource>();
+		if (source == null) source = gameObject.AddComponent<AudioSource>();
+	}
 
 	protected virtual void Update()
 	{
@@ -26,7 +38,13 @@ public class Entity : MonoBehaviour
 	{
 		if (deathNoise != null)
 		{
-
+			var go = new GameObject();
+			go.transform.position = transform.position;
+			go.transform.rotation = transform.rotation;
+			var audio = go.AddComponent<AudioSource>();
+			audio.PlayOneShot(deathNoise);
+			audio.volume = 0.2f;
+			Destroy(go, deathNoise.length);
 		}
 
 		if (deathParticle != null)

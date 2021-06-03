@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1884192774}
-  distance: -40
+  distance: -60
   time: 0.001
   rotationEuler: {x: 160, y: 0, z: 0}
 --- !u!82 &963194230
@@ -860,6 +860,11 @@ Transform:
   m_Father: {fileID: 394095178}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -50, y: -210, z: 0}
+--- !u!1 &1264287358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1264287358, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
+  m_PrefabInstance: {fileID: 463125169997152410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1554029901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,13 +1115,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1049704750, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1209922612, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1264287361, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
+      propertyPath: m_text
+      value: maximum    shields !
       objectReference: {fileID: 0}
     - target: {fileID: 463125169337896297, guid: 7ec19786bafceee4498c1feafef38ac1, type: 3}
       propertyPath: m_Name
@@ -1219,6 +1220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 732771038593569372, guid: d6e34af17095c724393b97ac3a1d2dc5, type: 3}
+      propertyPath: invincibleText
+      value: 
+      objectReference: {fileID: 1264287358}
     - target: {fileID: 732771038593569373, guid: d6e34af17095c724393b97ac3a1d2dc5, type: 3}
       propertyPath: m_RootOrder
       value: 4

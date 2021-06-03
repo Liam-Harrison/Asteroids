@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : Entity
 {
+	private const float DEBRIS_INVINCIBLE_TIME = 1f;
+
 	[SerializeField]
 	private float speed = 20;
 
@@ -10,18 +12,22 @@ public class Bullet : Entity
 
 	public Quaternion start;
 
-	private void Awake()
+	protected override void Awake()
 	{
 		Velocity = new Vector2(0, speed);
+		base.Awake();
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Debris")
+		if (collision.gameObject.tag == "Debris" || gameObject == null)
 		{
 			var debris = collision.gameObject.GetComponentInParent<DebrisEntity>();
 
 			if (debris == null)
+				return;
+
+			if (Time.time <= debris.Spawned + DEBRIS_INVINCIBLE_TIME)
 				return;
 
 			if (debris.Size == Size.Large)
@@ -41,6 +47,7 @@ public class Bullet : Entity
 
 			debris.OnEntityDestroyed();
 			Destroy(debris.gameObject);
+			Destroy(gameObject);
 		}
 	}
 

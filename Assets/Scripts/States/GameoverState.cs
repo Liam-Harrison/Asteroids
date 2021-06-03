@@ -6,6 +6,8 @@ public class GameoverState : GameState
 	{
 		UIManager.Instance.FinalScore.text = $"Final Score:{GameStateManager.Instance.Points:000000}";
 		PlayerEntity.Instance.HidePlayer();
+
+		PlayerEntity.Instance.Velocity = PlayerEntity.Instance.Velocity / 2f;
 	}
 
 	public override void OnLeaveState()

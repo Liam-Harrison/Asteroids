@@ -28,11 +28,13 @@ public class DebrisEntity : Entity
 	private Quaternion rotation;
 	private float speed;
 
-	private void Awake()
+	protected override void Awake()
 	{
 		speed = Mathf.Lerp(rotateRange.x, rotateRange.y, Random.value);
 		rotation = Quaternion.AngleAxis(45f, Random.onUnitSphere);
 		Velocity = Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector2(0, 1) * Mathf.Lerp(speedRange.x, speedRange.y, Random.value);
+
+		base.Awake();
 	}
 
 	protected override void Update()
