@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : Entity
 {
-	private const float DEBRIS_INVINCIBLE_TIME = 1f;
+	private const float DEBRIS_INVINCIBLE_TIME = 0.15f;
 
 	[SerializeField]
 	private float speed = 20;

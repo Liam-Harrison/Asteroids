@@ -70,12 +70,12 @@ public class HighscoreUI : MonoBehaviour
 		{
 			using var writter = File.CreateText(path);
 
-			writter.WriteLine($"AAA,50000");
-			writter.WriteLine($"BBB,40000");
-			writter.WriteLine($"CCC,30000");
-			writter.WriteLine($"DDD,20000");
-			writter.WriteLine($"EEE,10000");
-			writter.WriteLine($"FFF,5000");
+			writter.WriteLine($"AAA,8000");
+			writter.WriteLine($"BBB,6500");
+			writter.WriteLine($"CCC,5000");
+			writter.WriteLine($"DDD,3500");
+			writter.WriteLine($"EEE,2000");
+			writter.WriteLine($"FFF,500");
 		}
 
 		var lines = File.ReadAllLines(path);
