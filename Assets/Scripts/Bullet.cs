@@ -50,7 +50,7 @@ public class Bullet : Entity
 
 	protected override void Update()
 	{
-		if (this != null && Mathf.Abs(180 - Quaternion.Angle(PlayerEntity.Instance.transform.rotation, transform.rotation)) < 2f)
+		if (this != null && Mathf.Abs(180 - Quaternion.Angle(PlayerEntity.Instance.transform.rotation, transform.rotation)) < 2f && Time.time >= Spawned + 1f)
 		{
 			Destroy(gameObject);
 		}
