@@ -25,7 +25,7 @@ public class HighscoreUI : MonoBehaviour
 
 	private void PlacePlayerRow()
 	{
-		var score = 7500; // GameStateManager.Instance.Points;
+		var score = GameStateManager.Instance.Points;
 
 		gameoverContinue.text = "Press Space to continue";
 		UserInputting = false;
