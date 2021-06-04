@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 
 public class HighscoreUI : MonoBehaviour
@@ -8,6 +9,9 @@ public class HighscoreUI : MonoBehaviour
 
 	[SerializeField]
 	private GameObject rowPrefab;
+
+	[SerializeField]
+	private TextMeshProUGUI gameoverContinue;
 
 	private List<HighscoreRow> rows = new List<HighscoreRow>();
 
@@ -21,7 +25,10 @@ public class HighscoreUI : MonoBehaviour
 
 	private void PlacePlayerRow()
 	{
-		var score = GameStateManager.Instance.Points;
+		var score = 7500; // GameStateManager.Instance.Points;
+
+		gameoverContinue.text = "Press Space to continue";
+		UserInputting = false;
 
 		for (int i = 0; i < rows.Count; i++)
 		{
@@ -37,9 +44,10 @@ public class HighscoreUI : MonoBehaviour
 				user.Score.text = $"{score:000000}";
 
 				user.transform.SetSiblingIndex(row.transform.GetSiblingIndex());
-				user.ReadUserHighscore();
 				user.OnUserInputted += WriteHighscores;
+				user.ReadUserHighscore();
 				UserInputting = true;
+				gameoverContinue.text = "Press Enter to confirm name";
 
 				break;
 			}
@@ -59,6 +67,7 @@ public class HighscoreUI : MonoBehaviour
 
 		File.WriteAllLines(path, highscores);
 		UserInputting = false;
+		gameoverContinue.text = "Press Space to continue";
 	}
 
 	private void ParseScores()

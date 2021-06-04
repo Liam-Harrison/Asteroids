@@ -40,6 +40,7 @@ public class PlayerEntity : Entity
 		Instance = this;
 		camera = Camera.main;
 		child.gameObject.SetActive(false);
+		Velocity = (Random.onUnitSphere * Vector2.up).normalized * 2;
 
 		base.Awake();
 	}
@@ -97,7 +98,7 @@ public class PlayerEntity : Entity
 		if (Input.GetMouseButton(0) && Time.time >= lastFired + FIRE_RATE)
 		{
 			lastFired = Time.time;
-			EntityManager.Instance.SpawnBullet(child.position + child.forward, child.right);
+			EntityManager.Instance.SpawnBullet(child.position + (child.forward * 10), child.right);
 
 			if (nextClip >= fireClips.Length)
 				nextClip = 0;

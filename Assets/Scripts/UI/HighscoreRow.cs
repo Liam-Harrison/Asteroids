@@ -29,6 +29,7 @@ public class HighscoreRow : MonoBehaviour
 		Username.interactable = true;
 		EventSystem.current.SetSelectedGameObject(Username.gameObject, null);
 		Username.ActivateInputField();
+		Username.OnPointerClick(new PointerEventData(null));
 
 		Username.text = "";
 		UserInputting = true;
@@ -43,6 +44,12 @@ public class HighscoreRow : MonoBehaviour
 
 	private void Update()
 	{
+		if (!Username.isFocused && UserInputting)
+		{
+			EventSystem.current.SetSelectedGameObject(Username.gameObject, null);
+			Username.OnPointerClick(new PointerEventData(null));
+		}
+
 		if (Input.GetKeyDown(KeyCode.Return) && Username.text != "")
 		{
 			StopUserInput();

@@ -7,9 +7,6 @@ public class Bullet : Entity
 	[SerializeField]
 	private float speed = 20;
 
-	[SerializeField, Range(0, 180)]
-	private float despawn = 180f;
-
 	public Quaternion start;
 
 	protected override void Awake()
@@ -53,7 +50,7 @@ public class Bullet : Entity
 
 	protected override void Update()
 	{
-		if (this != null && Quaternion.Angle(PlayerEntity.Instance.transform.rotation, transform.rotation) >= despawn)
+		if (this != null && Mathf.Abs(180 - Quaternion.Angle(PlayerEntity.Instance.transform.rotation, transform.rotation)) < 2f)
 		{
 			Destroy(gameObject);
 		}

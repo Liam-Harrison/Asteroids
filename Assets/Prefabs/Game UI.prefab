@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &432056273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1049704751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1209922613
 RectTransform:
   m_ObjectHideFlags: 0
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: shields    damaged !
+  m_text: maximum    shields !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb308b49911a3624093ca860e5701a08, type: 2}
   m_sharedMaterial: {fileID: 6474087605535269221, guid: bb308b49911a3624093ca860e5701a08, type: 2}
@@ -1507,6 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowPrefab: {fileID: 5111396316089937420, guid: 9daed955cb7084743bbeecf112cda644, type: 3}
+  gameoverContinue: {fileID: 1872480484}
 --- !u!1 &463125169337896297
 GameObject:
   m_ObjectHideFlags: 0
