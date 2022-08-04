@@ -21,7 +21,7 @@ Made By:
     - Asteroid Particle Effects
     - Sound Effects
 
-Music by [ShortWire](https://linktr.ee/shortwiremusic)
+Music by [ShortWire](https://linktr.ee/shortwiremusic), used with permission.
 
 # Controls
 Keyboard and Mouse only.
